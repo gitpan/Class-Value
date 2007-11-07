@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base 'Class::Accessor::Complex';
@@ -25,7 +25,7 @@ __END__
 
 =head1 NAME
 
-Class::Value - foobar
+Class::Value - the Value Object design pattern
 
 =head1 SYNOPSIS
 

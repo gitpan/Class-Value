@@ -1,5 +1,5 @@
 --- 
-abstract: foobar
+abstract: the Value Object design pattern
 author: 
   - Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 build_requires: 
@@ -20,4 +20,4 @@ no_index:
 requires: 
   Error::Hierarchy: 0
   perl: 5.6.0
-version: 0.01
+version: 0.02

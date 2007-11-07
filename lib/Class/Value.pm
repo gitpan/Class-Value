@@ -7,7 +7,7 @@ use Class::Value::DefaultNotify;
 use Error::Hierarchy::Container;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base qw(Class::Accessor::Complex Class::Accessor::Constructor);
@@ -130,9 +130,9 @@ sub MUNGE_CONSTRUCTOR_ARGS {
         @args = (value => @args);
     }
 
-    if (UNIVERSAL::isa($self, 'Class::Framework::Storable')) {
+    if (UNIVERSAL::isa($self, 'Class::Scaffold::Storable')) {
         @args =
-            $self->Class::Framework::Storable::MUNGE_CONSTRUCTOR_ARGS(@args);
+            $self->Class::Scaffold::Storable::MUNGE_CONSTRUCTOR_ARGS(@args);
     }
 
     @args;
@@ -389,7 +389,7 @@ __END__
 
 =head1 NAME
 
-Class::Value - foobar
+Class::Value - the Value Object design pattern
 
 =head1 SYNOPSIS
 
