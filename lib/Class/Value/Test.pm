@@ -7,7 +7,7 @@ use warnings;
 use Test::More;
 
 
-our $VERSION = '0.04';
+our $VERSION = '0.06';
 
 
 use base 'Data::Semantic::Test';
@@ -35,6 +35,14 @@ object test classes can inherit from it. They don't inherit from
 Data::Semantic::Test directly because methods common to all value class tests
 might emerge and they'd go into this class.
 
+=head1 METHODS
+
+=over 4
+
+
+
+=back
+
 Class::Value::Test inherits from L<Data::Semantic::Test>.
 
 The superclass L<Data::Semantic::Test> defines these methods and functions:
@@ -50,8 +58,7 @@ functions:
 The superclass L<Class::Accessor::Complex> defines these methods and
 functions:
 
-    carp(), cluck(), croak(), flatten(), mk_abstract_accessors(),
-    mk_array_accessors(), mk_boolean_accessors(),
+    mk_abstract_accessors(), mk_array_accessors(), mk_boolean_accessors(),
     mk_class_array_accessors(), mk_class_hash_accessors(),
     mk_class_scalar_accessors(), mk_concat_accessors(),
     mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
@@ -69,35 +76,17 @@ The superclass L<Class::Accessor> defines these methods and functions:
 The superclass L<Class::Accessor::Installer> defines these methods and
 functions:
 
-    install_accessor(), subname()
+    install_accessor()
 
 The superclass L<Data::Inherited> defines these methods and functions:
 
     every_hash(), every_list(), flush_every_cache_by_key()
 
-=head1 METHODS
-
-=over 4
-
-
-
-=back
-
-=head1 TAGS
-
-If you talk about this module in blogs, on del.icio.us or anywhere else,
-please use the C<classvalue> tag.
-
-=head1 VERSION 
-                   
-This document describes version 0.04 of L<Class::Value::Test>.
-
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
-Please report any bugs or feature requests to
-C<<bug-class-value@rt.cpan.org>>, or through the web interface at
+Please report any bugs or feature requests through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -110,13 +99,13 @@ The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
 site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
 Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2007 by Marcel GrE<uuml>nauer
+Copyright 2004-2008 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

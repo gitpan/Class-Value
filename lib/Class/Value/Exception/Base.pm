@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.04';
+our $VERSION = '0.06';
 
 
 # Base class to mark exceptions thrown by value classes; all such exceptions
@@ -35,32 +35,33 @@ Class::Value::Exception::Base - the Value Object design pattern
 None yet. This is an early release; fully functional, but undocumented. The
 next release will have more documentation.
 
+=head1 METHODS
+
+=over 4
+
+
+
+=back
+
 Class::Value::Exception::Base inherits from L<Error::Hierarchy>.
 
 The superclass L<Error::Hierarchy> defines these methods and functions:
 
-    NameSpace_DNS(), NameSpace_OID(), NameSpace_URL(), NameSpace_X500(),
-    _depth_accessor(), _exception_hostname_accessor(),
-    _filename_accessor(), _line_accessor(), _message_accessor(),
-    _package_accessor(), _stacktrace_accessor(), _uuid_accessor(),
-    acknowledged(), acknowledged_clear(), acknowledged_set(), carp(),
-    clear_acknowledged(), clear_is_optional(), comparable(), confess(),
-    croak(), default_message(), depth(), error_depth(),
-    exception_hostname(), filename(), get_properties(), hostname(), init(),
-    is_optional(), is_optional_clear(), is_optional_set(), line(),
-    message(), package(), properties_as_hash(), set_acknowledged(),
-    set_is_optional(), stacktrace(), stringify(), transmute(), uuid()
+    acknowledged(), acknowledged_clear(), acknowledged_set(),
+    clear_acknowledged(), clear_is_optional(), comparable(), error_depth(),
+    get_properties(), init(), is_optional(), is_optional_clear(),
+    is_optional_set(), properties_as_hash(), set_acknowledged(),
+    set_is_optional(), stringify(), transmute()
 
 The superclass L<Error::Hierarchy::Base> defines these methods and
 functions:
 
-    new(), (""(), ()(), (cmp(), dump_as_yaml(), dump_raw()
+    new(), dump_as_yaml(), dump_raw()
 
 The superclass L<Error> defines these methods and functions:
 
-    (0+(), (bool(), _throw_Error_Simple(), associate(), catch(), file(),
-    flush(), import(), object(), prior(), record(), text(), throw(),
-    value(), with()
+    _throw_Error_Simple(), associate(), catch(), file(), flush(), import(),
+    object(), prior(), record(), text(), throw(), value(), with()
 
 The superclass L<Data::Inherited> defines these methods and functions:
 
@@ -69,12 +70,12 @@ The superclass L<Data::Inherited> defines these methods and functions:
 The superclass L<Class::Accessor::Complex> defines these methods and
 functions:
 
-    cluck(), flatten(), mk_abstract_accessors(), mk_array_accessors(),
-    mk_boolean_accessors(), mk_class_array_accessors(),
-    mk_class_hash_accessors(), mk_class_scalar_accessors(),
-    mk_concat_accessors(), mk_forward_accessors(), mk_hash_accessors(),
-    mk_integer_accessors(), mk_new(), mk_object_accessors(),
-    mk_scalar_accessors(), mk_set_accessors(), mk_singleton()
+    mk_abstract_accessors(), mk_array_accessors(), mk_boolean_accessors(),
+    mk_class_array_accessors(), mk_class_hash_accessors(),
+    mk_class_scalar_accessors(), mk_concat_accessors(),
+    mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
+    mk_new(), mk_object_accessors(), mk_scalar_accessors(),
+    mk_set_accessors(), mk_singleton()
 
 The superclass L<Class::Accessor> defines these methods and functions:
 
@@ -87,31 +88,13 @@ The superclass L<Class::Accessor> defines these methods and functions:
 The superclass L<Class::Accessor::Installer> defines these methods and
 functions:
 
-    install_accessor(), subname()
-
-=head1 METHODS
-
-=over 4
-
-
-
-=back
-
-=head1 TAGS
-
-If you talk about this module in blogs, on del.icio.us or anywhere else,
-please use the C<classvalue> tag.
-
-=head1 VERSION 
-                   
-This document describes version 0.04 of L<Class::Value::Exception::Base>.
+    install_accessor()
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
-Please report any bugs or feature requests to
-C<<bug-class-value@rt.cpan.org>>, or through the web interface at
+Please report any bugs or feature requests through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -124,13 +107,13 @@ The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
 site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
 Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2007 by Marcel GrE<uuml>nauer
+Copyright 2004-2008 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
