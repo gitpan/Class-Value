@@ -1,5 +1,10 @@
 Revision history for Perl extension Class-Value
 
+0.07 Thu 2009.11.05 15:41:49 CET (Marcel Gruenauer <marcel@cpan.org>)
+     - Class::Value::Test sets $Class::Value::SkipChecks = 0 because in tests
+       you'll most likely want to test exceptions and such
+     - miscellaneous performance tuning
+
 0.06  Mon Oct 20 17:38:57 CEST 2008 (Marcel Gruenauer <marcel@cpan.org>)
      - Changed dist style and Changes back to standard. People didn't like it -
        the nail that sticks out gets hammered down.

@@ -1,28 +1,13 @@
 package Class::Value::Exception::UnsupportedOperation;
-
 use warnings;
 use strict;
-
-
-our $VERSION = '0.06';
-
-
+our $VERSION = '0.07';
 use base 'Class::Value::Exception';
-
-
 __PACKAGE__->mk_scalar_accessors(qw(opname));
-
-
 use constant default_message =>
-    'Value object of type [%s], value [%s], does not support operation [%s]';
-
-
-use constant PROPERTIES => ( 'opname' );
-
-
+  'Value object of type [%s], value [%s], does not support operation [%s]';
+use constant PROPERTIES => ('opname');
 1;
-
-
 __END__
 
 
@@ -33,7 +18,7 @@ Class::Value::Exception::UnsupportedOperation - unsupported operation exception
 
 =head1 SYNOPSIS
 
-None; this class is internal.
+    # None; this class is internal.
 
 =head1 DESCRIPTION
 
@@ -45,13 +30,13 @@ overload defined for it).
 
 =over 4
 
-=item clear_opname
+=item C<clear_opname>
 
     $obj->clear_opname;
 
 Clears the value.
 
-=item opname
+=item C<opname>
 
     my $value = $obj->opname;
     $obj->opname($value);
@@ -59,7 +44,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item opname_clear
+=item C<opname_clear>
 
     $obj->opname_clear;
 
@@ -135,7 +120,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
 
 =head1 AUTHORS
 
@@ -143,7 +128,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -1,30 +1,13 @@
 package Class::Value::Exception;
-
-# $Id: Exception.pm 13653 2007-10-22 09:11:20Z gr $
-
 use warnings;
 use strict;
-
-
-our $VERSION = '0.06';
-
-
+our $VERSION = '0.07';
 use base 'Class::Value::Exception::Base';
-
-
 __PACKAGE__->mk_scalar_accessors(qw(ref value));
-
-
 use constant default_message =>
-    'General value object exception for type [%s], value [%s]';
-
-
-use constant PROPERTIES => ( qw/ref value/ );
-
-
+  'General value object exception for type [%s], value [%s]';
+use constant PROPERTIES => (qw/ref value/);
 1;
-
-
 __END__
 
 
@@ -46,19 +29,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_ref
+=item C<clear_ref>
 
     $obj->clear_ref;
 
 Clears the value.
 
-=item clear_value
+=item C<clear_value>
 
     $obj->clear_value;
 
 Clears the value.
 
-=item ref
+=item C<ref>
 
     my $value = $obj->ref;
     $obj->ref($value);
@@ -66,13 +49,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ref_clear
+=item C<ref_clear>
 
     $obj->ref_clear;
 
 Clears the value.
 
-=item value
+=item C<value>
 
     my $value = $obj->value;
     $obj->value($value);
@@ -80,7 +63,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item value_clear
+=item C<value_clear>
 
     $obj->value_clear;
 
@@ -150,7 +133,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
 
 =head1 AUTHORS
 
@@ -158,7 +141,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

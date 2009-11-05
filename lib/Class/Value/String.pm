@@ -1,48 +1,32 @@
 package Class::Value::String;
-
-# $Id: String.pm 13667 2007-11-07 08:14:13Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.06';
-
-
+our $VERSION = '0.07';
 use base 'Class::Value';
-
-
 __PACKAGE__->mk_class_scalar_accessors(qw(string_delegate));
-
-
 use constant HYGIENIC => ('string_delegate');
-
 
 sub charset_handler {
     my $self = shift;
 
     # Do we even have a delegate from which we can get the information?
     my $string_delegate = $self->string_delegate;
-    return unless
-        ref($string_delegate) &&
-        UNIVERSAL::can($string_delegate, 'get_charset_handler_for');
-
+    return
+      unless ref($string_delegate)
+          && UNIVERSAL::can($string_delegate, 'get_charset_handler_for');
     $string_delegate->get_charset_handler_for($self);
 }
-
 
 sub max_length {
     my $self = shift;
 
     # Do we even have a delegate from which we can get the information?
     my $string_delegate = $self->string_delegate;
-    return 0 unless
-        ref($string_delegate) &&
-        UNIVERSAL::can($string_delegate, 'get_max_length_for');
-
+    return 0
+      unless ref($string_delegate)
+          && UNIVERSAL::can($string_delegate, 'get_max_length_for');
     $string_delegate->get_max_length_for($self);
 }
-
 
 sub is_valid_normalized_value {
     my ($self, $value) = @_;
@@ -50,24 +34,17 @@ sub is_valid_normalized_value {
     $self->is_valid_string_value($value);
 }
 
-
 sub is_valid_string_value {
     my ($self, $value) = @_;
 
     # string can be undef
     return 1 unless defined($value) && length($value);
-
     $self->max_length && return 0 if length($value) > $self->max_length;
-
     local $_ = $self->charset_handler;
     return 1 unless ref $_ && $_->can('is_valid_string');
     $_->is_valid_string($value);
 }
-
-
 1;
-
-
 __END__
 
 
@@ -89,14 +66,14 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_string_delegate
+=item C<clear_string_delegate>
 
     $obj->clear_string_delegate;
 
 Clears the value. Since this is a class variable, the value will be undefined
 for all instances of this class.
 
-=item string_delegate
+=item C<string_delegate>
 
     my $value = $obj->string_delegate;
     $obj->string_delegate($value);
@@ -106,7 +83,7 @@ between all instances of this class. Changing it in one object will change it
 for all other objects as well. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item string_delegate_clear
+=item C<string_delegate_clear>
 
     $obj->string_delegate_clear;
 
@@ -198,7 +175,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
 
 =head1 AUTHORS
 
@@ -206,7 +183,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -1,26 +1,13 @@
 package Class::Value::Notify;
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.06';
-
-
+our $VERSION = '0.07';
 use base 'Class::Accessor::Complex';
-
-
 __PACKAGE__->mk_new;
-
-
-sub init                        {}
-sub notify_value_not_wellformed {}
-sub notify_value_invalid        {}
-
-
+sub init                        { }
+sub notify_value_not_wellformed { }
+sub notify_value_invalid        { }
 1;
-
-
 __END__
 
 
@@ -42,7 +29,7 @@ next release will have more documentation.
 
 =over 4
 
-=item new
+=item C<new>
 
     my $obj = Class::Value::Notify->new;
     my $obj = Class::Value::Notify->new(%args);
@@ -95,7 +82,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
 
 =head1 AUTHORS
 
@@ -103,7 +90,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

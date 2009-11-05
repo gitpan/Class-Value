@@ -1,23 +1,12 @@
 package Class::Value::Exception::Base;
-
-# $Id: Base.pm 13653 2007-10-22 09:11:20Z gr $
-
 use warnings;
 use strict;
-
-
-our $VERSION = '0.06';
-
+our $VERSION = '0.07';
 
 # Base class to mark exceptions thrown by value classes; all such exceptions
 # should subclass this class.
-
 use base qw(Error::Hierarchy Class::Accessor::Complex);
-
-
 1;
-
-
 __END__
 
 
@@ -105,7 +94,7 @@ See perlmodinstall for information and options on installing Perl modules.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
 
 =head1 AUTHORS
 
@@ -113,7 +102,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
