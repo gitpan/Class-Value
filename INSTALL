@@ -1,9 +1,10 @@
-This is the Perl module Class::Value.
+
+This is the Perl distribution Class-Value.
 
 ## Installation
 
-Class::Value installation is straightforward. If your CPAN shell is
-set up, you should just be able to do
+Class-Value installation is straightforward.
+If your CPAN shell is set up, you should just be able to do
 
     % cpan Class::Value
 
@@ -18,10 +19,9 @@ Then install it:
 
 ## Documentation
 
-Class::Value documentation is available as in POD. So you can do:
+Class-Value documentation is available as in POD.
+So you can do:
 
     % perldoc Class::Value
 
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
+to read the documentation with your favorite pager.

@@ -1,8 +1,11 @@
-package Class::Value::Enum;
+use 5.008;
 use strict;
 use warnings;
-our $VERSION = '0.07';
-use base 'Class::Value';
+
+package Class::Value::Enum;
+our $VERSION = '1.100840';
+# ABSTRACT: An enumeration value object
+use parent 'Class::Value';
 sub get_valid_values_list           { () }
 sub get_value_normalization_hashref { {} }
 
@@ -14,11 +17,10 @@ sub normalize_value {
 sub normalize_enum_value {
     my ($self, $value) = @_;
     return unless defined $value;
-
     my $ref = ref $self;
     our %cache;
     $cache{$ref} ||=
-        { map { $_ => 1 } @{ scalar $self->get_valid_values_list } };
+      { map { $_ => 1 } @{ scalar $self->get_valid_values_list } };
     return $value if $cache{$ref}{$value};
     $self->get_value_normalization_hashref->{ lc $value };
 
@@ -31,127 +33,91 @@ sub as_plaintext {
     $lookup{ $self->value };
 }
 1;
+
+
 __END__
-
-
+=pod
 
 =head1 NAME
 
-Class::Value::Enum - the Value Object design pattern
+Class::Value::Enum - An enumeration value object
 
-=head1 SYNOPSIS
+=head1 VERSION
 
-    Class::Value::Enum->new;
+version 1.100840
 
 =head1 DESCRIPTION
 
-None yet. This is an early release; fully functional, but undocumented. The
-next release will have more documentation.
+This is a value object that only takes one of a given list of values. See
+L<Class::Value::Boolean> for an example.
 
 =head1 METHODS
 
-=over 4
+=head2 as_plaintext
 
+Returns the denormalized value, that is, the value that would be normalized to
+the currently set value. This obviously only works well if there is a
+one-to-one relationships between denormalized and normalized values. If this
+is not the case for your specific enumeration value object, then override this
+method.
 
+=head2 get_valid_values_list
 
-=back
+Returns the list of values that this value object will accept. In this base
+class, the empty list is returned, so you will need to override it in subclasses.
 
-Class::Value::Enum inherits from L<Class::Value>.
+=head2 get_value_normalization_hashref
 
-The superclass L<Class::Value> defines these methods and functions:
+Returns a hash reference that shows how to normalize values. For each hash
+entry, the key is the denormalized value and the value is the normalized
+value. See L<Class::Value::Boolean> for an example. In this base class, an
+empty hash reference is returned, so you will need to override it in
+subclasses.
 
-    new(), MUNGE_CONSTRUCTOR_ARGS(), check(), clear_exception_container(),
-    clear_notify_delegate(), comparable(), exception_container(),
-    exception_container_clear(), get_value(), init(), is_defined(),
-    is_valid(), is_valid_normalized_value(), is_valid_value(),
-    is_well_formed(), is_well_formed_value(), normalize(),
-    notify_delegate(), notify_delegate_clear(), run_checks(),
-    run_checks_with_exception_container(), send_notify_value_invalid(),
-    send_notify_value_normalized(), send_notify_value_not_wellformed(),
-    set_value(), skip_checks(), skip_dirtying(), skip_normalizations(),
-    str_cmp(), stringify(), throw_single_exception(), value()
+=head2 normalize_enum_value
 
-The superclass L<Class::Accessor::Complex> defines these methods and
-functions:
+Normalizes the given value. If the argument is one of the values this value
+object can take according to C<get_valid_values_list()> - the result of which
+are cached for performance reasons -, then it is returned unaltered, otherwise
+C<get_value_normalization_hashref()> is consulted.
 
-    mk_abstract_accessors(), mk_array_accessors(), mk_boolean_accessors(),
-    mk_class_array_accessors(), mk_class_hash_accessors(),
-    mk_class_scalar_accessors(), mk_concat_accessors(),
-    mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
-    mk_new(), mk_object_accessors(), mk_scalar_accessors(),
-    mk_set_accessors(), mk_singleton()
+=head2 normalize_value
 
-The superclass L<Class::Accessor> defines these methods and functions:
+Hands over normalization to C<normalize_enum_value>.
 
-    _carp(), _croak(), _mk_accessors(), accessor_name_for(),
-    best_practice_accessor_name_for(), best_practice_mutator_name_for(),
-    follow_best_practice(), get(), make_accessor(), make_ro_accessor(),
-    make_wo_accessor(), mk_accessors(), mk_ro_accessors(),
-    mk_wo_accessors(), mutator_name_for(), set()
+=head1 INSTALLATION
 
-The superclass L<Class::Accessor::Installer> defines these methods and
-functions:
-
-    install_accessor()
-
-The superclass L<Class::Accessor::Constructor> defines these methods and
-functions:
-
-    _make_constructor(), mk_constructor(), mk_constructor_with_dirty(),
-    mk_singleton_constructor()
-
-The superclass L<Data::Inherited> defines these methods and functions:
-
-    every_hash(), every_list(), flush_every_cache_by_key()
-
-The superclass L<Class::Accessor::Constructor::Base> defines these methods
-and functions:
-
-    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
-    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
-    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
-    elements_hygienic(), elements_unhygienic(), hygienic(),
-    hygienic_clear(), hygienic_contains(), hygienic_delete(),
-    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
-    hygienic_size(), insert_hygienic(), insert_unhygienic(),
-    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
-    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
-    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
-    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
-
-The superclass L<Tie::StdHash> defines these methods and functions:
-
-    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
-    TIEHASH()
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Class-Value>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see L<http://search.cpan.org/dist/Class-Value/>.
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see
+L<http://search.cpan.org/dist/Class-Value/>.
 
-=head1 AUTHORS
+The development version lives at
+L<http://github.com/hanekomu/Class-Value/>.
+Instead of sending patches, please fork this project using the standard git
+and github infrastructure.
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+=head1 AUTHOR
+
+  Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2009 by the authors.
+This software is copyright (c) 2004 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

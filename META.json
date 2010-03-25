@@ -1,0 +1,93 @@
+{
+   "resources" : {
+      "homepage" : "http://search.cpan.org/dist/Class-Value/",
+      "repository" : "http://github.com/hanekomu/Class-Value",
+      "bugtracker" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Class-Value"
+   },
+   "generated_by" : "Dist::Zilla version 1.100711",
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "version" : "1.100840",
+   "name" : "Class-Value",
+   "author" : [
+      "Marcel Gruenauer <marcel@cpan.org>"
+   ],
+   "license" : "perl",
+   "build_requires" : {},
+   "provides" : {
+      "Class::Value::Test" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Test.pm"
+      },
+      "Class::Value" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value.pm"
+      },
+      "Class::Value::Exception::Base" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Exception/Base.pm"
+      },
+      "Class::Value::Enum" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Enum.pm"
+      },
+      "Class::Value::DefaultNotify" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/DefaultNotify.pm"
+      },
+      "Class::Value::Notify" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Notify.pm"
+      },
+      "Class::Value::Boolean" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Boolean.pm"
+      },
+      "Class::Value::Exception::NotWellFormedValue" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Exception/NotWellFormedValue.pm"
+      },
+      "Class::Value::Exception::InvalidValue" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Exception/InvalidValue.pm"
+      },
+      "Class::Value::Exception::UnsupportedOperation" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Exception/UnsupportedOperation.pm"
+      },
+      "Class::Value::Exception" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/Exception.pm"
+      },
+      "Class::Value::String" : {
+         "version" : "1.100840",
+         "file" : "lib/Class/Value/String.pm"
+      }
+   },
+   "requires" : {
+      "Scalar::Util" : "0",
+      "Error" : "0",
+      "Class::Accessor::Constructor" : "0",
+      "File::Find" : "0",
+      "Error::Hierarchy" : "0",
+      "Error::Hierarchy::Test" : "0",
+      "Class::Accessor::Complex" : "0",
+      "Error::Hierarchy::Container" : "0",
+      "English" : "0",
+      "parent" : "0",
+      "Data::Semantic::Test" : "0",
+      "overload" : "0",
+      "constant" : "0",
+      "Carp" : "0",
+      "perl" : "5.008",
+      "Test::More" : "0.88",
+      "File::Temp" : "0"
+   },
+   "abstract" : "Implements the Value Object Design Pattern",
+   "configure_requires" : {
+      "ExtUtils::MakeMaker" : "6.11"
+   }
+}
+

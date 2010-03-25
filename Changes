@@ -1,5 +1,10 @@
 Revision history for Perl extension Class-Value
 
+1.100840  2010-03-25 18:40:09 Europe/Vienna
+    - converted the distribution to Dist::Zilla-style
+    - use parent instead of use base
+    - added documentation
+
 0.07 Thu 2009.11.05 15:41:49 CET (Marcel Gruenauer <marcel@cpan.org>)
      - Class::Value::Test sets $Class::Value::SkipChecks = 0 because in tests
        you'll most likely want to test exceptions and such

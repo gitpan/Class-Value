@@ -1,34 +1,73 @@
 ---
-abstract: 'The Value Object design pattern'
+abstract: 'Implements the Value Object Design Pattern'
 author:
-  - 'Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>'
-build_requires:
-  ExtUtils::MakeMaker: 6.42
-  Test::More: 0.70
+  - 'Marcel Gruenauer <marcel@cpan.org>'
+build_requires: {}
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
-distribution_type: module
-generated_by: 'Module::Install version 0.91'
+  ExtUtils::MakeMaker: 6.11
+generated_by: 'Dist::Zilla version 1.100711'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Class-Value
-no_index:
-  directory:
-    - inc
-    - t
-    - xt
+provides:
+  Class::Value:
+    file: lib/Class/Value.pm
+    version: 1.100840
+  Class::Value::Boolean:
+    file: lib/Class/Value/Boolean.pm
+    version: 1.100840
+  Class::Value::DefaultNotify:
+    file: lib/Class/Value/DefaultNotify.pm
+    version: 1.100840
+  Class::Value::Enum:
+    file: lib/Class/Value/Enum.pm
+    version: 1.100840
+  Class::Value::Exception:
+    file: lib/Class/Value/Exception.pm
+    version: 1.100840
+  Class::Value::Exception::Base:
+    file: lib/Class/Value/Exception/Base.pm
+    version: 1.100840
+  Class::Value::Exception::InvalidValue:
+    file: lib/Class/Value/Exception/InvalidValue.pm
+    version: 1.100840
+  Class::Value::Exception::NotWellFormedValue:
+    file: lib/Class/Value/Exception/NotWellFormedValue.pm
+    version: 1.100840
+  Class::Value::Exception::UnsupportedOperation:
+    file: lib/Class/Value/Exception/UnsupportedOperation.pm
+    version: 1.100840
+  Class::Value::Notify:
+    file: lib/Class/Value/Notify.pm
+    version: 1.100840
+  Class::Value::String:
+    file: lib/Class/Value/String.pm
+    version: 1.100840
+  Class::Value::Test:
+    file: lib/Class/Value/Test.pm
+    version: 1.100840
 requires:
+  Carp: 0
   Class::Accessor::Complex: 0
   Class::Accessor::Constructor: 0
-  Data::Semantic: 0
+  Data::Semantic::Test: 0
+  English: 0
+  Error: 0
   Error::Hierarchy: 0
-  Test::CompanionClasses: 0.03
-  perl: 5.6.0
+  Error::Hierarchy::Container: 0
+  Error::Hierarchy::Test: 0
+  File::Find: 0
+  File::Temp: 0
+  Scalar::Util: 0
+  Test::More: 0.88
+  constant: 0
+  overload: 0
+  parent: 0
+  perl: 5.008
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Class-Value
   homepage: http://search.cpan.org/dist/Class-Value/
-  license: http://dev.perl.org/licenses/
-  repository: git://github.com/hanekomu/class-value.git
-version: 0.07
+  repository: http://github.com/hanekomu/Class-Value
+version: 1.100840
